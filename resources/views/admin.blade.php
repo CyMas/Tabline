@@ -178,7 +178,6 @@
                                         </li>
                                         <li><a href="pricing_tables.html">Pricing Tables</a>
                                         </li>
-
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a>
@@ -442,16 +441,13 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                             <div class="clearfix"></div>
                         </div>
                     </div>
 
                 </div>
                 <br />
-
                 <div class="row">
 
 
