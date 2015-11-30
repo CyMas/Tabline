@@ -11,9 +11,10 @@
 		<h1>Welcome</h1>
 	<form method="POST">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-			<input name="email" type="text" placeholder="Username">
+			<input name="username" type="text" placeholder="Username">
 			<input name="password" type="password" placeholder="Password">
-			<button type="submit" id="login-button">Login</button>
+			<button type="submit" id="login-button">Login</button><br><br>
+				<br><a href="/register">Click Disini</a> untuk Registrasi
 		</form>
 	</div>
 	<ul class="bg-bubbles">

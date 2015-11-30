@@ -120,7 +120,7 @@
                 <a href="/login">Login</a>
               </li>
               <li>  
-                <a href="/auth/register">Register</a>
+                <a href="/register">Register</a>
               </li>            <!-- End Navigation List -->
           </div>
         </div>

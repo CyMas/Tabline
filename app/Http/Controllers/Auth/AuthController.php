@@ -9,93 +9,101 @@
      
     class AuthController extends Controller {
      
-    /**
-    * the model instance
-    * @var User
-    */
-    protected $user;
-    /**
-    * The Guard implementation.
-    *
-    * @var Authenticator
-    */
-    protected $auth;
+        /**
+         * the model instance
+         * @var User
+         */
+        protected $user; 
+        /**
+         * The Guard implementation.
+         *
+         * @var Authenticator
+         */
+        protected $auth;
      
-    /**
-    * Create a new authentication controller instance.
-    *
-    * @param Authenticator $auth
-    * @return void
-    */
-    public function __construct(Guard $auth, User $user)
-    {
-    $this->user = $user;
-    $this->auth = $auth;
+        /**
+         * Create a new authentication controller instance.
+         *
+         * @param  Authenticator  $auth
+         * @return void
+         */
+        public function __construct(Guard $auth, User $user)
+        {
+            $this->user = $user; 
+            $this->auth = $auth;
      
-    $this->middleware('guest', ['except' => ['getLogout']]);
-    }
+            $this->middleware('guest', ['except' => ['getLogout']]); 
+        }
      
-    /**
-    * Show the application registration form.
-    *
-    * @return Response
-    */
-    public function getRegister()
-    {
-    return view('auth.register');
-    }
+        /**
+         * Show the application registration form.
+         *
+         * @return Response
+         */
+        public function getRegister()
+        {
+            return view('auth.register');
+        }
      
-    /**
-    * Handle a registration request for the application.
-    *
-    * @param RegisterRequest $request
-    * @return Response
-    */
-    public function postRegister(RegisterRequest $request)
-    {
-    //code for registering a user goes here.
-    $this->auth->login($this->user);
-    return redirect('/login');
-    }
+        /**
+         * Handle a registration request for the application.
+         *
+         * @param  RegisterRequest  $request
+         * @return Response
+         */
+        public function postRegister(RegisterRequest $request)
+        {
+            $this->user->nama = $request->nama;
+            $this->user->username = $request->username;
+            $this->user->password = bcrypt($request->password);
+            $this->user->jenisKelamin = $request->jenisKelamin;
+            $this->user->ttl = $request->ttl;
+            $this->user->alamat = $request->alamat;
+            $this->user->no_tlp = $request->no_tlp;
+            $this->user->save();
+            //code for registering a user goes here.
+            $this->auth->login($this->user); 
+            return redirect('/login'); 
+        }
      
-    /**
-    * Show the application login form.
-    *
-    * @return Response
-    */
-    public function getLogin()
-    {
-    return view('auth.login');
-    }
+        /**
+         * Show the application login form.
+         *
+         * @return Response
+         */
+        public function getLogin()
+        {
+            return view('auth.login');
+        }
      
-    /**
-    * Handle a login request to the application.
-    *
-    * @param LoginRequest $request
-    * @return Response
-    */
-    public function postLogin(LoginRequest $request)
-    {
-    if ($this->auth->attempt($request->only('email', 'password')))
-    {
-    return redirect('/admin');
-    }
+        /**
+         * Handle a login request to the application.
+         *
+         * @param  LoginRequest  $request
+         * @return Response
+         */
+        public function postLogin(LoginRequest $request)
+        {
+            if ($this->auth->attempt($request->only('username', 'password')))
+            {
+                return redirect('/admin');
+            }
      
-    return redirect('/login')->withErrors([
-    'email' => 'Coba Ulang !',
-    ]);
-    }
+            return redirect('/login')->withErrors([
+                'username' => 'Username atau Password Salah',
+            ]);
+        }
      
-    /**
-    * Log the user out of the application.
-    *
-    * @return Response
-    */
-    public function getLogout()
-    {
-    $this->auth->logout();
+        /**
+         * Log the user out of the application.
+         *
+         * @return Response
+         */
+        public function getLogout()
+        {
+            $this->auth->logout();
      
-    return redirect('/');
-    }
+            return redirect('/');
+        }
      
     }

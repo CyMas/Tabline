@@ -2,7 +2,7 @@
      
     use Illuminate\Foundation\Http\FormRequest;
      
-    class LoginRequest extends FormRequest {
+    class RegisterRequest extends FormRequest {
      
         /**
          * Get the validation rules that apply to the request.
@@ -12,7 +12,13 @@
         public function rules()
         {
             return [
-                'username' => 'required', 'password' => 'required',
+                'nama' => 'required',
+                'username' => 'required|unique:users',
+                'password' => 'required|confirmed|min:8',
+                'jenisKelamin' => 'required',
+                'ttl' => 'required',
+                'alamat' => 'required',
+                'no_tlp' => 'required',
             ];
         }
      
