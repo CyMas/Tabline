@@ -53,7 +53,7 @@
                 <div class="left_col scroll-view">
 
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+                        <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>Tabline</span></a>
                     </div>
                     <div class="clearfix"></div>
 
@@ -79,11 +79,11 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="index.html">Dashboard</a>
+                                        <li><a href="/">Dashboard</a>
                                         </li>
-                                        <li><a href="index2.html">Dashboard2</a>
+                                        <li><a href="/">Dashboard2</a>
                                         </li>
-                                        <li><a href="index3.html">Dashboard3</a>
+                                        <li><a href="/">Dashboard3</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -223,18 +223,7 @@
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                    <li><a href="javascript:;">  Profile</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="badge bg-red pull-right">50%</span>
-                                            <span>Settings</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">Help</a>
-                                    </li>
-                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                    <li><a href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                     </li>
                                 </ul>
                             </li>
