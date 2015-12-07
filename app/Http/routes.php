@@ -16,7 +16,7 @@ Route::get('/', 'WelcomeController@index');
 Route::get('/home', 'HomeController@index');
 
 
-Route::get('/admin',['as'=>'admin','uses'=>"TablineController@index"]);
+Route::get('/index',['as'=>'admin','uses'=>"TablineController@index"]);
 
 Route::get('/login','Auth\AuthController@getLogin');
 Route::post('/login','Auth\AuthController@postLogin');
