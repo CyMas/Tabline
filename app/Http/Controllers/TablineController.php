@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Tabline\Tabline;
 
 class TablineController extends Controller {
 
@@ -79,6 +80,17 @@ class TablineController extends Controller {
 	public function destroy($id)
 	{
 		//
+	}
+	public function reportpengeluaran()
+	{
+		$artikel = array('data'=>DB::table('setorans'));
+if(!empty($artikel)) {
+	$data = array('data'=>DB::select('select *from setorans'));
+	$pdf = \PDF::loadview('report.reportpengeluaran', $data);
+	return $pdf->stream('setorans.pdf');
+}else{
+	return redirect(url());
+	}
 	}
 
 }
