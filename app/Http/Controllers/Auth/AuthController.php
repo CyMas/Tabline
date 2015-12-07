@@ -86,7 +86,7 @@
         {
             if ($this->auth->attempt($request->only('username', 'password')))
             {
-                return redirect('/admin');
+                return redirect('/index');
             }
      
             return redirect('/login')->withErrors([

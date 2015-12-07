@@ -78,31 +78,17 @@
                             <h3>General</h3>
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                </li>
+                                @if(Auth::user()->type=="user")
+                                <li><a><i class="fa fa-edit"></i> Input <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="/">Dashboard</a>
+                                        <li><a href="form.html">Input Pemasukan</a>
                                         </li>
-                                        <li><a href="/">Dashboard2</a>
-                                        </li>
-                                        <li><a href="/">Dashboard3</a>
+                                        <li><a href="form_advanced.html">Input Pengeluaran</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: none">
-                                        <li><a href="form.html">General Form</a>
-                                        </li>
-                                        <li><a href="form_advanced.html">Advanced Components</a>
-                                        </li>
-                                        <li><a href="form_validation.html">Form Validation</a>
-                                        </li>
-                                        <li><a href="form_wizards.html">Form Wizard</a>
-                                        </li>
-                                        <li><a href="form_upload.html">Form Upload</a>
-                                        </li>
-                                        <li><a href="form_buttons.html">Form Buttons</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                @endif
                                 <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li><a href="general_elements.html">General Elements</a>
@@ -125,14 +111,26 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+                                @if(Auth::user()->type=="user")
+                                <li><a><i class="fa fa-table"></i> History <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="tables.html">Tables</a>
+                                        <li><a href="tables.html">History Pemasukan</a>
                                         </li>
-                                        <li><a href="tables_dynamic.html">Table Dynamic</a>
+                                        <li><a href="tables_dynamic.html">History Pengeluaran</a>
                                         </li>
                                     </ul>
                                 </li>
+                                @endif
+                                @if(Auth::user()->type=="admin")
+                                <li><a><i class="fa fa-table"></i> History <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li><a href="tables.html">History Pemasukan</a>
+                                        </li>
+                                        <li><a href="tables_dynamic.html">History Pengeluaran</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                @endif
                                 <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li><a href="chartjs.html">Chart JS</a>
