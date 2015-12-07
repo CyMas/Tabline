@@ -24,6 +24,9 @@ Route::post('/login','Auth\AuthController@postLogin');
 Route::get('/register','Auth\AuthController@getRegister');
 Route::post('/register','Auth\AuthController@postRegister');
 
+Route::get('reportpengeluaran','TablineController@reportpengeluaran');
+
+
 Route::get('/logout','Auth\AuthController@getLogout');/**/
 
 /*Route::controllers([
