@@ -63,7 +63,7 @@
             $this->user->save();
             //code for registering a user goes here.
             $this->auth->login($this->user); 
-            return redirect('/login'); 
+            return redirect('login'); 
         }
      
         /**
