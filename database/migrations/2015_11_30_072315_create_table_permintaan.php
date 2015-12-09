@@ -20,8 +20,7 @@ class CreateTablePermintaan extends Migration {
 			$table->string('no_rek');
 			$table->enum('jenis_rek', ['BCA','Mandiri']);
 			$table->string('alamat');
-			$table->string('penerima_faedah');
-			$table->integer('jml_permintaan');
+			$table->integer('jumlah_pemasukan');
 			$table->enum('status', ['Proses','Terkirim']);
 			$table->timestamps();
 		});

@@ -77,7 +77,7 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-edit"></i> Input <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="/tabline/member/permintaan">Input Pemasukan</a>
+                                        <li><a href="/pemasukan">Input Pemasukan</a>
                                         </li>
                                         <li><a href="form_advanced.html">Input Pengeluaran</a>
                                         </li>
@@ -147,16 +147,10 @@
                             </li>
 
                             <li role="presentation" class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <span class="badge bg-green">6</span>
-                                </a>
                                 <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
                                     <li>
                                         <a>
-                                            <span class="image">
-                                        <img src="images/img.jpg" alt="Profile Image" />
-                                    </span>
+                                           
                                             <span>
                                         <span>John Smith</span>
                                             <span class="time">3 mins ago</span>

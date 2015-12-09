@@ -3,6 +3,12 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App;
+use DB;
+use App\User;
+use App\Permintaan;
+use App\Setoran;
+
 use Illuminate\Http\Request;
 use Tabline\Tabline;
 
@@ -81,16 +87,35 @@ class TablineController extends Controller {
 	{
 		//
 	}
-	public function reportpengeluaran()
+	
+
+	public function pemasukan()
 	{
-		$artikel = array('data'=>DB::table('setorans'));
-if(!empty($artikel)) {
-	$data = array('data'=>DB::select('select *from setorans'));
-	$pdf = \PDF::loadview('report.reportpengeluaran', $data);
-	return $pdf->stream('setorans.pdf');
-}else{
-	return redirect(url());
+		return view('data.pemasukan');
 	}
+	public function memberpermintaan()
+	{
+		return view('tabline.member.permintaan');
 	}
+
+	public function memberpermintaansave()
+	{
+		$post = new Permintaan;
+		$post->username = \Input::get('username');
+		$post->nama_nasabah = \Input::get('nama_nasabah');
+		$post->no_rek = \Input::get('no_rek');
+		$post->jenis_rek = \Input::get('jenis_rek');
+		$post->alamat = \Input::get('alamat');
+		$post->jumlah_pemasukan = \Input::get('jumlah_pemasukan');
+
+		$post->save();
+		return redirect(url('/tabline/member/history/permintaan'));
+	}
+	public function memberhistorisetoran()
+	{
+		$data = array('data'=>Setoran::all());
+		return view('tabline.member.historisetoran')->with($data);
+	}
+	
 
 }

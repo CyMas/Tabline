@@ -19,7 +19,7 @@ class CreateTableSetoran extends Migration {
 			$table->string('nama_nasabah');
 			$table->string('no_rek');
 			$table->enum('jenis_rek', ['BCA','Mandiri']);
-			$table->integer('jml_setoran');
+			$table->integer('jumlah_pengeluaran');
 			$table->enum('status', ['Belum di Kirim','Sudah Terkirim']);
 			$table->timestamps();
 		});

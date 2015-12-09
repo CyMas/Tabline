@@ -57,7 +57,7 @@ return [
 			'host'      => 'localhost',
 			'database'  => 'tabline',
 			'username'  => 'root',
-			'password'  => 'CyMas404',
+			'password'  => '1234',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

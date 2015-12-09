@@ -15,6 +15,7 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/pemasukan','TablineController@pemasukan');
 
 Route::get('/index',['as'=>'admin','uses'=>"TablineController@index"]);
 
@@ -23,6 +24,9 @@ Route::post('/login','Auth\AuthController@postLogin');
 
 Route::get('/register','Auth\AuthController@getRegister');
 Route::post('/register','Auth\AuthController@postRegister');
+
+Route::get('tabline/member/permintaan', 'AsuransiController@memberpermintaan');
+Route::post('tabline/member/permintaan/save', 'AsuransiController@memberpermintaansave');
 
 Route::get('reportpengeluaran','TablineController@reportpengeluaran');
 
