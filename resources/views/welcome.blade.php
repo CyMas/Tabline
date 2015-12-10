@@ -103,13 +103,16 @@
             
             <ul class="nav navbar-nav navbar-right">
               <li>
-                <a class="active" href="index.html">Home</a>
+                <a class="active" href="/welcome">Home</a>
               </li>
               <li>
                 <a href="/login">Login</a>
               </li>
               <li>  
                 <a href="/register">Register</a>
+              </li>
+              <li>
+                <a href="/contact">Contact Us</a>
               </li>
           </div>
         </div>
@@ -130,13 +133,11 @@
             <div class="slider-content">
               <div class="col-md-12 text-center">
                 <h2 class="animated2">
-                              <span>Welcome to <strong>Tabline</strong></span>
+                              <span><strong>Tabline</strong></span>
                               </h2>
                 <h3 class="animated3">
-                                <span>The ultimate aim of your business</span>
+                                <span>Tabungan Online</span>
                               </h3> 
-                <p class="animated4"><a href="#" class="slider btn btn-system btn-large">Check Now</a>
-                </p>
               </div>
             </div>
           </div>
@@ -146,13 +147,11 @@
             <div class="slider-content">
               <div class="col-md-12 text-center">
                 <h2 class="animated4">
-                                <span><strong>Margo</strong> for the highest</span>
+                                <span>Selamat Datang di</span>
                             </h2>
                 <h3 class="animated5">
-                              <span>The Key of your Success</span>
+                              <strong>Tabline</strong>
                             </h3>
-                <p class="animated6"><a href="#" class="slider btn btn-system btn-large">Buy Now</a>
-                </p>
               </div>
             </div>
           </div>
@@ -162,14 +161,11 @@
             <div class="slider-content">
               <div class="col-md-12 text-center">
                 <h2 class="animated7 white">
-                                <span>The way of <strong>Success</strong></span>
+                                <span>Tabungan <strong>efisien dan praktis</strong></span>
                             </h2>
                 <h3 class="animated8 white">
-                              <span>Why you are waiting</span>
+                              <span>Tabline</span>
                             </h3>
-                <div class="">
-                  <a class="animated4 slider btn btn-system btn-large btn-min-block" href="#">Get Now</a><a class="animated4 slider btn btn-default btn-min-block" href="#">Live Demo</a>
-                </div>
               </div>
             </div>
           </div>

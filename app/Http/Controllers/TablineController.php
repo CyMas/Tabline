@@ -2,6 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
+use App\Contact;
+use App;
+
+use DB;
 
 use App;
 use DB;
@@ -19,41 +24,37 @@ class TablineController extends Controller {
 	 *
 	 * @return Response
 	 */
+
 	public function index()
 	{
 		return view('index');
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
+	public function welcome()
 	{
-		//
+		return view('welcome');
+	}
+	
+	public function contact()
+	{
+		return view('contact');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
+	public function contactsave(Request $request)
 	{
-		//
-	}
+		date_default_timezone_set('Asia/Jakarta');
+		$nama = $request->input('nama');
+		$email = $request->input('email');
+		$no_hp = $request->input('no_hp');
+		$pesan = $request->input('pesan');
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
+		DB::insert('insert into contact (id, nama, email, no_hp, pesan) values(?,?,?,?,?)',
+			['',$nama, $email, $no_hp, $pesan]);
+		return redirect('/welcome');
 	}
+<<<<<<< HEAD
+}
+=======
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -144,3 +145,4 @@ class TablineController extends Controller {
 	
 
 }
+>>>>>>> dcf9835792d724fa16a839670b3b178283d4f5e5
