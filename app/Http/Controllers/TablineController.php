@@ -4,14 +4,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Contact;
-use App;
-
-use DB;
 
 use App;
 use DB;
 use App\Permintaan;
-use App\User;
 use App\Setoran;
 
 use Illuminate\Http\Request;
@@ -52,16 +48,7 @@ class TablineController extends Controller {
 			['',$nama, $email, $no_hp, $pesan]);
 		return redirect('/welcome');
 	}
-<<<<<<< HEAD
-}
-=======
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function edit($id)
 	{
 		//
@@ -145,4 +132,3 @@ class TablineController extends Controller {
 	
 
 }
->>>>>>> dcf9835792d724fa16a839670b3b178283d4f5e5

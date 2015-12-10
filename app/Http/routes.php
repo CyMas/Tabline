@@ -15,15 +15,15 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('/home', 'HomeController@index');
 
-<<<<<<< HEAD
+
 Route::get('/welcome','TablineController@welcome');
 
 Route::get('/contact', 'TablineController@contact');
 Route::post('contactsave','TablineController@contactsave');
 
-=======
+
 Route::get('/pemasukan','TablineController@pemasukan');
->>>>>>> dcf9835792d724fa16a839670b3b178283d4f5e5
+
 
 Route::get('/index',['as'=>'admin','uses'=>"TablineController@index"]);
 
