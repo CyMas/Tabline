@@ -10,26 +10,26 @@
     <meta name="author" content="">
 
     @if(Auth::user()->type=="admin")
-        <title>D' Assurance - Admin</title>
+        <title>Tabline - Admin</title>
     @else(Auth::user()->type=="user")
-        <title>D' Assurance - Member</title>
+        <title>Tabline - Member</title>
     @endif
 
     <!-- Bootstrap Core CSS -->
-    {!! HTML::style('member/css/bootstrap.min.css') !!}
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- {!! HTML::style('member/css/bootstrap.min.css') !!} -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"> 
 
     <!-- Custom CSS -->
-    {!! HTML::style('member/css/sb-admin.css') !!}
-   <!--  <link href="css/sb-admin.css" rel="stylesheet"> -->
+    <!-- {!! HTML::style('member/css/sb-admin.css') !!} -->
+   <link href="css/sb-admin.css" rel="stylesheet"> 
 
     <!-- Morris Charts CSS -->
-    {!! HTML::style('member/css/plugins/morris.css') !!}
-    <!-- <link href="css/plugins/morris.css" rel="stylesheet"> -->
+    <!-- {!! HTML::style('member/css/plugins/morris.css') !!} -->
+    <link href="css/plugins/morris.css" rel="stylesheet"> 
 
     <!-- Custom Fonts -->
-    {!! HTML::style('member/font-awesome/css/font-awesome.min.css') !!}
-    <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- {!! HTML::style('member/font-awesome/css/font-awesome.min.css') !!} -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -275,12 +275,12 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    {!! HTML::script('member/js/jquery.js') !!}
-    <!-- /*<script src="js/jquery.js"></script>*/ -->
+   <!--   -->{!! HTML::script('member/js/jquery.js') !!}
+    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    {!! HTML::script('member/js/bootstrap.min.js') !!}
-    <!-- /*<script src="js/bootstrap.min.js"></script>*/ -->
+    <!-- {!! HTML::script('member/js/bootstrap.min.js') !!} -->
+    <script src="js/bootstrap.min.js"></script>
 
 </body>
 

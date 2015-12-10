@@ -99,16 +99,17 @@ class TablineController extends Controller {
 		$post->save();
 		return redirect(url('/tabline/member/history/permintaan'));
 	}
-	public function memberhistorisetoran()
-	{
-		$data = array('data'=>Setoran::all());
-		return view('tabline.member.historisetoran')->with($data);
-	}
-
 	public function membersetoran()
 	{
 		return view('tabline.member.setoran');
 	}
+	public function memberhistorysetoran()
+	{
+		$data = array('data'=>Setoran::all());
+		return view('tabline.member.historysetoran')->with($data);
+	}
+
+
 
 	public function membersetoransave()
 	{

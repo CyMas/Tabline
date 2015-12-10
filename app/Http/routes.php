@@ -37,7 +37,7 @@ Route::get('tabline/member/history/permintaan', 'TablineController@memberhistory
 Route::get('tabline/member/permintaan', 'TablineController@memberpermintaan');
 Route::post('tabline/member/permintaan/save', 'TablineController@memberpermintaansave');
 
-Route::get('tabline/member/history/setoran', 'TablineController@memberhistorysetoran');
+Route::get('tabline/member/histori/setoran', 'TablineController@memberhistorisetoran');
 Route::get('tabline/member/setoran', 'TablineController@membersetoran');
 Route::post('tabline/member/setoran/save', 'TablineController@membersetoransave');
 
