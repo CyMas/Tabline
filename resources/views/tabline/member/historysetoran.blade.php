@@ -10,24 +10,26 @@
     <meta name="author" content="">
 
     @if(Auth::user()->type=="admin")
-        <title>Tabline - Admin</title>
+        <title>D' Assurance - Admin</title>
     @else(Auth::user()->type=="user")
-        <title>Tabline - Member</title>
+        <title>D' Assurance - Member</title>
     @endif
 
     <!-- Bootstrap Core CSS -->
-        <link href="/css/bootstrap.min.css" rel="stylesheet"> 
-<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    {!! HTML::style('member/css/bootstrap.min.css') !!}
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- Custom CSS -->
-    <link href="/css/sb-admin.css" rel="stylesheet"> 
+    {!! HTML::style('member/css/sb-admin.css') !!}
    <!--  <link href="css/sb-admin.css" rel="stylesheet"> -->
 
     <!-- Morris Charts CSS -->
-     <link href="/css/plugins/morris.css" rel="stylesheet"> 
+    {!! HTML::style('member/css/plugins/morris.css') !!}
+    <!-- <link href="css/plugins/morris.css" rel="stylesheet"> -->
 
     <!-- Custom Fonts -->
-    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    {!! HTML::style('member/font-awesome/css/font-awesome.min.css') !!}
+    <!-- <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -156,7 +158,7 @@
                         <a href="/tabline/member/index"><i class="fa fa-fw fa-desktop"></i> Home</a>
                     </li>
                     @if(Auth::user()->type=="user")
-                        <li class="active">
+                        <li>
                             <a href="javascript:;" data-toggle="collapse" data-target="#input"><i class="fa fa-fw fa-arrows-v"></i> Input <i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="input" class="collapse">
                                 <li>
@@ -167,7 +169,7 @@
                                 </li>
                             </ul>
                         </li>
-                    <li>
+                    <li class="active">
                         <a href="javascript:;" data-toggle="collapse" data-target="#history"><i class="fa fa-fw fa-arrows-v"></i> History <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="history" class="collapse">
                             <li>
@@ -214,87 +216,56 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Permintaan
+                            History Setoran
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-desktop"></i>  <a href="/tabline/member/index">Home</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-table"></i> Permintaan
+                                <i class="fa fa-table"></i> History Setoran
                             </li>
                         </ol>
                     </div>
                 </div>
                 <!-- /.row -->
+
                 <div class="row">
-                <div class="col-lg-6">
+                <div class="col-md-12">
                         <h2></h2>
                         <div class="table-responsive">
-                            <form action="{{ url('tabline/member/permintaan/save') }}" method="POST" enctype="multipart/form-data">
-                            <table class="table hovered" style="width: 100%">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <tr>
-                                    <td>Username</td>
-                                    <td>
-                                        <div class="input-control text full-size">
-                                            <input class="form-control" type="text" name="username" id="username" value="{{ Auth::user()->username }}" autocomplete="off" readonly>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Nama Nasabah</td>
-                                    <td>
-                                        <div class="input-control text full-size">
-                                            <input class="form-control" type="text" name="nama_nasabah" id="nama_nasabah" autocomplete="off">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>No Rekening</td>
-                                    <td>
-                                        <div class="input-control text full-size">
-                                            <input class="form-control" type="text" name="no_rek" id="no_rek" autocomplete="off">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Jenis Rekening</td>
-                                    <td>                        
-                                        <div class="input-control select">
-                                            <select class="form-control" name="jenis_rek" id="jenis_rek">
-                                                <option>BCA</option>
-                                                <option>Mandiri</option>
-                                            </select>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Alamat Lengkap</td>
-                                    <td>
-                                        <div class="input-control text full-size">
-                                            <textarea class="form-control" type="text" name="alamat" id="alamat" autocomplete="off"></textarea>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Jumlah Pemasukan</td>
-                                    <td>
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon">Rp.</span>
-                                            <input type="text" class="form-control" name="jumlah_pemasukan" id="jumlah_pemasukan">
-                                        </div>
-                                    </td>
-                                </tr>
-                                
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <th>No.</th>
+                                    <th>Username</th>
+                                    <th>Nama Nasabah</th>
+                                    <th>No Rekening</th>
+                                    <th>Jenis Rekening</th>
+                                    <th>Jumlah Pengeluaran</th>
+                                    <th>Tanggal Setoran</th>
+                                    <th>Status</th>
+                                </thead>
+                                <tbody>
+                                <?php $i = 1; ?>
+                                    @foreach($data as $post)
+                                        @if($post->username == Auth::user()->username)
+                                        <tr>
+                                            <td>{{ $i++}}</td>
+                                            <td>{{ $post->username }}</td>                       
+                                            <td>{{ $post->nama_nasabah }}</td>                       
+                                            <td>{{ $post->no_rek }}</td>                       
+                                            <td>{{ $post->jenis_rek }}</td>                       
+                                            <td>{{ "Rp.".number_format($post->jumlah_pengeluaran,0,',','.').",-" }}</td>                     
+                                            <td>{{ $post->created_at }}</td>                       
+                                            <td>{{ $post->status }}</td>                       
+                                        </tr>
+                                        @endif
+                                    @endforeach
+                                </tbody>
                             </table>
-                            <button type="submit" class="btn btn-default">Submit</button>
-                            <button type="reset" class="btn btn-default">Cancel</button>              
-                            </form>   
-                            <br>      
-                    
-
-            </div>
+                        </div>
+                </div>
+                </div>
             <!-- /.container-fluid -->
 
         </div>
@@ -304,10 +275,12 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="/js/jquery.js"></script>
+    {!! HTML::script('member/js/jquery.js') !!}
+    <!-- /*<script src="js/jquery.js"></script>*/ -->
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/js/bootstrap.min.js"></script>
+    {!! HTML::script('member/js/bootstrap.min.js') !!}
+    <!-- /*<script src="js/bootstrap.min.js"></script>*/ -->
 
 </body>
 

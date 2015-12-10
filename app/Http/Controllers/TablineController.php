@@ -5,8 +5,8 @@ use App\Http\Controllers\Controller;
 
 use App;
 use DB;
-use App\User;
 use App\Permintaan;
+use App\User;
 use App\Setoran;
 
 use Illuminate\Http\Request;
@@ -116,6 +116,31 @@ class TablineController extends Controller {
 		$data = array('data'=>Setoran::all());
 		return view('tabline.member.historisetoran')->with($data);
 	}
+
+	public function membersetoran()
+	{
+		return view('tabline.member.setoran');
+	}
+
+	public function membersetoransave()
+	{
+		$post = new Setoran;
+		$post->username = \Input::get('username');
+		$post->nama_nasabah = \Input::get('nama_nasabah');
+		$post->no_rek = \Input::get('no_rek');
+		$post->jenis_rek = \Input::get('jenis_rek');
+		$post->jumlah_pengeluaran = \Input::get('jumlah_pengeluaran');
+
+		$post->save();
+		return redirect(url('/tabline/member/history/setoran'));
+	}
+
+	public function memberhistorypermintaan()
+	{
+		$data = array('data'=>Permintaan::all());
+		return view('tabline.member.historypermintaan')->with($data);
+	}
+	
 	
 
 }

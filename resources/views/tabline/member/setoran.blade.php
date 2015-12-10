@@ -16,18 +16,20 @@
     @endif
 
     <!-- Bootstrap Core CSS -->
-        <link href="/css/bootstrap.min.css" rel="stylesheet"> 
-<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- {!! HTML::style('member/css/bootstrap.min.css') !!} -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet"> 
 
     <!-- Custom CSS -->
-    <link href="/css/sb-admin.css" rel="stylesheet"> 
-   <!--  <link href="css/sb-admin.css" rel="stylesheet"> -->
+    <!-- {!! HTML::style('member/css/sb-admin.css') !!} -->
+   <link href="/css/sb-admin.css" rel="stylesheet"> 
 
     <!-- Morris Charts CSS -->
-     <link href="/css/plugins/morris.css" rel="stylesheet"> 
+    <!-- {!! HTML::style('member/css/plugins/morris.css') !!} -->
+    <link href="/css/plugins/morris.css" rel="stylesheet"> 
 
     <!-- Custom Fonts -->
-    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- {!! HTML::style('member/font-awesome/css/font-awesome.min.css') !!} -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -214,14 +216,14 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Permintaan
+                            Setoran
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-desktop"></i>  <a href="/tabline/member/index">Home</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-table"></i> Permintaan
+                                <i class="fa fa-table"></i> Setoran
                             </li>
                         </ol>
                     </div>
@@ -231,7 +233,7 @@
                 <div class="col-lg-6">
                         <h2></h2>
                         <div class="table-responsive">
-                            <form action="{{ url('tabline/member/permintaan/save') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ url('tabline/member/setoran/save') }}" method="POST" enctype="multipart/form-data">
                             <table class="table hovered" style="width: 100%">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <tr>
@@ -270,19 +272,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Alamat Lengkap</td>
-                                    <td>
-                                        <div class="input-control text full-size">
-                                            <textarea class="form-control" type="text" name="alamat" id="alamat" autocomplete="off"></textarea>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Jumlah Pemasukan</td>
-                                    <td>
-                                        <div class="form-group input-group">
+                                    <td>Jumlah Pengeluaran</td>
+                                    <td><div class="form-group input-group">
                                             <span class="input-group-addon">Rp.</span>
-                                            <input type="text" class="form-control" name="jumlah_pemasukan" id="jumlah_pemasukan">
+                                            <input type="text" class="form-control" name="jumlah_pengeluaran" id="jumlah_pengeluaran">
+                                            
                                         </div>
                                     </td>
                                 </tr>
@@ -304,9 +298,11 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
+    <!-- {!! HTML::script('member/js/jquery.js') !!} -->
     <script src="/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
+    <!-- {!! HTML::script('member/js/bootstrap.min.js') !!} -->
     <script src="/js/bootstrap.min.js"></script>
 
 </body>

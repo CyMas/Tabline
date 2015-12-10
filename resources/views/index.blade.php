@@ -79,15 +79,15 @@
                                     <ul class="nav child_menu" style="display: none">
                                         <li><a href="/tabline/member/permintaan">Input Pemasukan</a>
                                         </li>
-                                        <li><a href="form_advanced.html">Input Pengeluaran</a>
+                                        <li><a href="/tabline/member/setoran">Input Pengeluaran</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-edit"></i> Input <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-edit"></i> History <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="form.html">Input Pemasukan</a>
+                                        <li><a href="form.html">History Pemasukan</a>
                                         </li>
-                                        <li><a href="form_advanced.html">Input Pengeluaran</a>
+                                        <li><a href="form_advanced.html">History Pengeluaran</a>
                                         </li>
                                     </ul>
                                 </li>
