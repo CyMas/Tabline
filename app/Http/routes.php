@@ -41,18 +41,25 @@ Route::get('tabline/member/histori/setoran', 'TablineController@memberhistoriset
 Route::get('tabline/member/setoran', 'TablineController@membersetoran');
 Route::post('tabline/member/setoran/save', 'TablineController@membersetoransave');
 
-Route::get('tabline/member/history/permintaan', 'TablineController@memberhistorypermintaan');
-Route::get('tabline/member/history/permintaan/edit/{id}', 'TablineController@memberhistorypermintaanedit');
-Route::post('tabline/member/history/permintaan/update', 'TablineController@memberhistorypermintaanupdate');
+Route::get('tabline/member/histori/permintaan', 'TablineController@memberhistoripermintaan');
+Route::get('tabline/member/histori/permintaan/edit/{id}', 'TablineController@memberhistoripermintaanedit');
+Route::post('tabline/member/histori/permintaan/update', 'TablineController@memberhistoripermintaanupdate');
 Route::get('tabline/member/pengeluaran/Report', 'TablineController@memberpengeluaranreport');
 
-Route::get('tabline/member/history/setoran', 'TablineController@memberhistorysetoran');
-Route::get('tabline/member/history/setoran/edit/{id}', 'TablineController@memberhistorysetoranedit');
-Route::post('tabline/member/history/setoran/update', 'TablineController@memberhistorysetoranupdate');
+Route::get('tabline/member/histori/setoran', 'TablineController@memberhistorisetoran');
+Route::get('tabline/member/histori/setoran/edit/{id}', 'TablineController@memberhistorisetoranedit');
+Route::post('tabline/member/histori/setoran/update', 'TablineController@memberhistorisetoranupdate');
 Route::get('tabline/member/pemasukan/Report', 'TablineController@memberpemasukanreport');
 
 Route::get('reportpengeluaran','TablineController@reportpengeluaran');
 
+Route::get('/histori/pemasukan', 'TablineController@adminhistoripemasukan');
+Route::post('/histori/pemasukan/update', 'TablineController@adminhistoripemasukanupdate');
+Route::get('/histori/pemasukan/edit/{id}', 'TablineController@adminhistoripemasukanedit');
+
+Route::get('/histori/pengeluaran', 'TablineController@adminhistoripengeluaran');
+Route::post('/histori/pengeluaran/update', 'TablineController@adminhistoripengeluaranupdate');
+Route::get('/histori/pengeluaran/edit/{id}', 'TablineController@adminhistoripengeluaranedit');
 
 Route::get('/logout','Auth\AuthController@getLogout');/**/
 

@@ -129,7 +129,70 @@ class TablineController extends Controller {
 		$data = array('data'=>Permintaan::all());
 		return view('tabline.member.historypermintaan')->with($data);
 	}
+	public function memberhistoripermintaanupdate()
+	{
+		$data = array(
+			'status' => \Input::get('status'),
+		);
+		\DB::table('permintaans')->where('id', \Input::get('id'))->update($data);
+		return redirect(url('/tabline/member/histori/permintaan'));
+	}
+
+	public function memberhistorisetoran()
+	{
+		$data = array('data'=>Setoran::all());
+		return view('tabline.member.historisetoran')->with($data);
+	}
+	public function memberhistorisetoranupdate()
+	{
+		$data = array(
+			'status' => \Input::get('status'),
+		);
+		\DB::table('setorans')->where('id', \Input::get('id'))->update($data);
+		return redirect(url('/tabline/member/histori/setoran'));
+	}
+
+	public function adminhistoripemasukan()
+	{
+		$data = array('data'=>Permintaan::all());
+		return view('tabline.admin.historipemasukan')->with($data);
+	}
+
+	public function adminhistoripemasukanedit($id)
+	{
+		$data = array('data'=>Permintaan::find($id));
+		return view('tabline.admin.historipemasukanedit')->with($data);
+	}
+
+	public function adminhistoripemasukanupdate()
+	{
+		$data = array(
+			'status' => \Input::get('status'),
+		);
+		\DB::table('permintaans')->where('id', \Input::get('id'))->update($data);
+		return redirect(url('/histori/pemasukan'));
+	}
 	
+	public function adminhistoripengeluaran()
+	{
+		$data = array('data'=>Setoran::all());
+		return view('tabline.admin.historipengeluaran')->with($data);
+	}
+
+	public function adminhistoripengeluaranedit($id)
+	{
+		$data = array('data'=>Setoran::find($id));
+		return view('tabline.admin.historipengeluaranedit')->with($data);
+	}
+
+	public function adminhistoripengeluaranupdate()
+	{
+		$data = array(
+			'status' => \Input::get('status'),
+		);
+		\DB::table('setorans')->where('id', \Input::get('id'))->update($data);
+		return redirect(url('/histori/pengeluaran'));
+	}
 	
 
 }

@@ -11,20 +11,19 @@
     <title>Tabline</title>
 
     <!-- Bootstrap core CSS -->
+    {!! HTML::style('css/bootstrap.min.css') !!}
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet">
+    {!! HTML::style('fonts/css/font-awesome.min.css') !!}
+    {!! HTML::style('css/animate.min.css') !!}
 
     <!-- Custom styling plus plugins -->
-    <link href="css/custom.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/maps/jquery-jvectormap-2.0.1.css" />
-    <link href="css/icheck/flat/green.css" rel="stylesheet" />
-    <link href="css/floatexamples.css" rel="stylesheet" type="text/css" />
+    {!! HTML::style('css/custom.css') !!}
+    {!! HTML::style('css/maps/jquery-jvectormap-2.0.1.css') !!}
+    {!! HTML::style('css/icheck/flat/green.css') !!}
+    {!! HTML::style('css/floatexamples.css') !!}
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/nprogress.js"></script>
+    {!! HTML::script('js/jquery.min.js') !!}
+    {!! HTML::script('js/nprogress.js') !!}
     <script>
         NProgress.start();
     </script>
@@ -60,7 +59,7 @@
                     <!-- menu prile quick info -->
                     <div class="profile">
                         <div class="profile_pic">
-                            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                            <img src="/images/img.jpg" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
@@ -133,7 +132,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/img.jpg" alt="">{{ Auth::user()->nama }}
+                                    <img src="/images/img.jpg" alt="">{{ Auth::user()->nama }}
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
@@ -227,6 +226,64 @@
             <div class="right_col" role="main">
 
                 <!-- top tiles -->
+                <div class="table-responsive">
+                <form action="{{ url('histori/pengeluaran/update') }}" method="POST">
+                            <table class="table hovered" style="width: 100%">
+                                <input type="hidden" name="id" value="{{ $data->id }}">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <tr>
+                                    <td>Username</td><td>:</td>
+                                    <td><div class="input-control text full-size">
+                                                <input class="form-control" type="text" value="{{ $data->username }}" name="username" autocomplete="off" disabled>
+                                            </div></td>
+                                </tr>
+                                <tr>
+                                    <td>Nama Nasabah</td><td>:</td>
+                                    <td><div class="input-control text" data-role="datepicker">
+                                            <input class="form-control" type="text" name="nama_nasabah" value="{{ $data->nama_nasabah }}" disabled>                                                    
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>No Rekening</td><td>:</td>
+                                    <td><div class="input-control text" data-role="datepicker">
+                                            <input class="form-control" type="text" name="no_rek" value="{{ $data->no_rek }}" disabled>                                                    
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jenis Rekening</td><td>:</td>
+                                    <td><div class="input-control text" data-role="datepicker">
+                                            <input class="form-control" type="text" name="jenis_rek" value="{{ $data->jenis_rek }}" disabled>                                                    
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jumlah Setoran</td><td>:</td>
+                                    <td><div class="input-control text" data-role="datepicker">
+                                            <input class="form-control" type="text" name="jumlah_pengeluaran" value="{{ $data->jumlah_pengeluaran }}" disabled>                                                    
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Status</td><td>:</td>
+                                    <td>
+                                        <select class="form-control" name="status">
+                                        @if($data->status=='Belum di Kirim')
+                                            <option selected>Belum di Kirim</option>
+                                            <option>Sudah Terkirim</option>
+                                        @else
+                                            <option>Belum di Kirim</option>
+                                            <option selected>Sudah Terkirim</option>
+                                        @endif 
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>    
+                            <button type="submit" class="btn btn-default">Edit</button>
+                            <a href="{{ url('histori/pengeluaran/') }}"><div class="btn btn-default">Batal</div></a>
+                            </form>
+                            </div>
                 <!-- /top tiles -->
                 <br />
 
@@ -246,35 +303,34 @@
         <div id="notif-group" class="tabbed_notifications"></div>
     </div>
 
-    <script src="js/bootstrap.min.js"></script>
+    {!! HTML::script('js/bootstrap.min.js') !!}
 
     <!-- gauge js -->
-    <script type="text/javascript" src="js/gauge/gauge.min.js"></script>
-    <script type="text/javascript" src="js/gauge/gauge_demo.js"></script>
+    {!! HTML::script('js/gauge/gauge.min.js') !!}
+    {!! HTML::script('js/gauge/gauge_demo.js') !!}
     <!-- chart js -->
-    <script src="js/chartjs/chart.min.js"></script>
+    {!! HTML::script('js/chartjs/chart.min.js') !!}
     <!-- bootstrap progress js -->
-    <script src="js/progressbar/bootstrap-progressbar.min.js"></script>
-    <script src="js/nicescroll/jquery.nicescroll.min.js"></script>
+    {!! HTML::script('js/progressbar/bootstrap-progressbar.min.js') !!}
+    {!! HTML::script('js/nicescroll/jquery.nicescroll.min.js') !!}
     <!-- icheck -->
-    <script src="js/icheck/icheck.min.js"></script>
+    {!! HTML::script('js/icheck/icheck.min.js') !!}
     <!-- daterangepicker -->
-    <script type="text/javascript" src="js/moment.min.js"></script>
-    <script type="text/javascript" src="js/datepicker/daterangepicker.js"></script>
+    {!! HTML::script('js/moment.min.js') !!}
+    {!! HTML::script('js/datepicker/daterangepicker.js') !!}
 
-    <script src="js/custom.js"></script>
-
+    {!! HTML::script('js/custom.js') !!}
     <!-- flot js -->
     <!--[if lte IE 8]><script type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
-    <script type="text/javascript" src="js/flot/jquery.flot.js"></script>
-    <script type="text/javascript" src="js/flot/jquery.flot.pie.js"></script>
-    <script type="text/javascript" src="js/flot/jquery.flot.orderBars.js"></script>
-    <script type="text/javascript" src="js/flot/jquery.flot.time.min.js"></script>
-    <script type="text/javascript" src="js/flot/date.js"></script>
-    <script type="text/javascript" src="js/flot/jquery.flot.spline.js"></script>
-    <script type="text/javascript" src="js/flot/jquery.flot.stack.js"></script>
-    <script type="text/javascript" src="js/flot/curvedLines.js"></script>
-    <script type="text/javascript" src="js/flot/jquery.flot.resize.js"></script>
+    {!! HTML::script('js/flot/jquery.flot.js') !!}
+    {!! HTML::script('js/flot/jquery.flot.pie.js') !!}
+    {!! HTML::script('js/flot/jquery.flot.orderBars.js') !!}
+    {!! HTML::script('js/flot/jquery.flot.time.min.js') !!}
+    {!! HTML::script('js/flot/date.js') !!}
+    {!! HTML::script('js/flot/jquery.flot.spline.js') !!}
+    {!! HTML::script('js/flot/jquery.flot.stack.js') !!}
+    {!! HTML::script('js/flot/curvedLines.js') !!}
+    {!! HTML::script('js/flot/jquery.flot.resize.js') !!}
     <script>
         $(document).ready(function () {
             // [17, 74, 6, 39, 20, 85, 7]
@@ -337,10 +393,10 @@
     </script>
 
     <!-- worldmap -->
-    <script type="text/javascript" src="js/maps/jquery-jvectormap-2.0.1.min.js"></script>
-    <script type="text/javascript" src="js/maps/gdp-data.js"></script>
-    <script type="text/javascript" src="js/maps/jquery-jvectormap-world-mill-en.js"></script>
-    <script type="text/javascript" src="js/maps/jquery-jvectormap-us-aea-en.js"></script>
+    {!! HTML::script('js/maps/jquery-jvectormap-2.0.1.min.js') !!}
+    {!! HTML::script('js/maps/gdp-data.js') !!}
+    {!! HTML::script('js/maps/jquery-jvectormap-world-mill-en.js') !!}
+    {!! HTML::script('js/maps/jquery-jvectormap-us-aea-en.js') !!}
     <script>
         $(function () {
             $('#world-map-gdp').vectorMap({
@@ -361,7 +417,7 @@
         });
     </script>
     <!-- skycons -->
-    <script src="js/skycons/skycons.js"></script>
+    {!! HTML::script('js/skycons/skycons.js') !!}
     <script>
         var icons = new Skycons({
                 "color": "#73879C"
